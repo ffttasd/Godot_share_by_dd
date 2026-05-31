@@ -1,0 +1,156 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/test/general_glitch_3d_scene.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/ui/weird_glitch_screen_overlay.tscn" id="3_glitch_overlay"]
+[ext_resource type="Shader" path="res://shaders/weird_glitch_screen.gdshader" id="4_oolgq"]
+
+[sub_resource type="Environment" id="Environment_glitch"]
+background_mode = 1
+background_color = Color(0.055, 0.068, 0.082, 1)
+ambient_light_color = Color(0.78, 0.9, 1, 1)
+ambient_light_energy = 0.72
+tonemap_mode = 2
+glow_enabled = true
+glow_intensity = 0.22
+
+[sub_resource type="StandardMaterial3D" id="Mat_floor"]
+albedo_color = Color(0.12, 0.16, 0.18, 1)
+roughness = 0.86
+
+[sub_resource type="BoxMesh" id="Mesh_floor"]
+material = SubResource("Mat_floor")
+size = Vector3(14, 0.18, 9)
+
+[sub_resource type="BoxShape3D" id="Shape_floor"]
+size = Vector3(14, 0.18, 9)
+
+[sub_resource type="StandardMaterial3D" id="Mat_back_panel"]
+albedo_color = Color(0.075, 0.095, 0.12, 1)
+roughness = 0.9
+emission_enabled = true
+emission = Color(0.05, 0.18, 0.22, 1)
+emission_energy_multiplier = 0.38
+
+[sub_resource type="BoxMesh" id="Mesh_back_panel"]
+material = SubResource("Mat_back_panel")
+size = Vector3(8.8, 4.2, 0.12)
+
+[sub_resource type="StandardMaterial3D" id="Mat_cyan_emissive"]
+albedo_color = Color(0.15, 0.78, 0.92, 1)
+roughness = 0.45
+emission_enabled = true
+emission = Color(0.07, 0.78, 1, 1)
+emission_energy_multiplier = 1.3
+
+[sub_resource type="BoxMesh" id="Mesh_column"]
+material = SubResource("Mat_cyan_emissive")
+size = Vector3(0.26, 2.4, 0.26)
+
+[sub_resource type="SphereMesh" id="Mesh_orb_cyan"]
+material = SubResource("Mat_cyan_emissive")
+radius = 0.35
+height = 0.7
+radial_segments = 32
+rings = 16
+
+[sub_resource type="StandardMaterial3D" id="Mat_rose_emissive"]
+albedo_color = Color(0.95, 0.25, 0.46, 1)
+roughness = 0.38
+emission_enabled = true
+emission = Color(1, 0.16, 0.38, 1)
+emission_energy_multiplier = 0.86
+
+[sub_resource type="SphereMesh" id="Mesh_orb_rose"]
+material = SubResource("Mat_rose_emissive")
+radius = 0.28
+height = 0.56
+radial_segments = 32
+rings = 16
+
+[sub_resource type="StandardMaterial3D" id="Mat_warm"]
+albedo_color = Color(0.94, 0.72, 0.36, 1)
+roughness = 0.5
+emission_enabled = true
+emission = Color(1, 0.58, 0.16, 1)
+emission_energy_multiplier = 0.45
+
+[sub_resource type="BoxMesh" id="Mesh_cube_warm"]
+material = SubResource("Mat_warm")
+size = Vector3(0.58, 0.58, 0.58)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f72sn"]
+resource_local_to_scene = true
+shader = ExtResource("4_oolgq")
+shader_parameter/intensity = 0.82
+shader_parameter/tint_color = Color(0.9, 0.98, 1, 1)
+
+[node name="GeneralGlitch3DScene" type="Node3D"]
+script = ExtResource("1_script")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_glitch")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.94551873, 0.3255679, 0, -0.3255679, 0.94551873, 0, 4.2669783, 7.2)
+projection = 1
+current = true
+size = 5.7
+
+[node name="KeyLight" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353553, 0.612372, 0, 5, 5)
+light_color = Color(0.86, 0.94, 1, 1)
+light_energy = 1.1
+shadow_enabled = true
+
+[node name="AccentLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9, 2, 1.2)
+light_color = Color(0.2, 0.9, 1, 1)
+light_energy = 2.2
+omni_range = 6.0
+
+[node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.09, 0)
+
+[node name="FloorVisual" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("Mesh_floor")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("Shape_floor")
+
+[node name="BackPanel" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, -1.9)
+mesh = SubResource("Mesh_back_panel")
+
+[node name="Columns" type="Node3D" parent="."]
+
+[node name="ColumnLeft" type="MeshInstance3D" parent="Columns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2, 1.2, -1.2)
+mesh = SubResource("Mesh_column")
+
+[node name="ColumnRight" type="MeshInstance3D" parent="Columns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2, 1.2, -1.2)
+mesh = SubResource("Mesh_column")
+
+[node name="OrbitingProps" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38, -0.55)
+
+[node name="CyanOrb" type="MeshInstance3D" parent="OrbitingProps"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45, 0.15, 0)
+mesh = SubResource("Mesh_orb_cyan")
+
+[node name="RoseOrb" type="MeshInstance3D" parent="OrbitingProps"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25, -0.25, 0.15)
+mesh = SubResource("Mesh_orb_rose")
+
+[node name="WarmCube" type="MeshInstance3D" parent="OrbitingProps"]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 0.05, 0.55, -0.85)
+mesh = SubResource("Mesh_cube_warm")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="WeirdGlitchScreenOverlay" parent="CanvasLayer" instance=ExtResource("3_glitch_overlay")]
+material = SubResource("ShaderMaterial_f72sn")
+intensity = 0.79
+tint_color = Color(0, 0.4301472, 0.42287397, 1)
+flash_duration = 0.16

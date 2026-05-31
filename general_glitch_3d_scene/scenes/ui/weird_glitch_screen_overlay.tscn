@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/weird_glitch_screen_overlay.gd" id="1_script"]
+[ext_resource type="Shader" path="res://shaders/weird_glitch_screen.gdshader" id="2_shader"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_weird_glitch_screen"]
+resource_local_to_scene = true
+shader = ExtResource("2_shader")
+
+[node name="WeirdGlitchScreenOverlay" type="ColorRect"]
+material = SubResource("ShaderMaterial_weird_glitch_screen")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 1)
+script = ExtResource("1_script")
