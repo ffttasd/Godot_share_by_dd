@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/alembic_obj_sequence_player.gd" id="1_player"]
+[ext_resource type="Material" path="res://materials/vfx/huiju_v2_solid_material.tres" id="2_material"]
+
+[node name="HuijuSequence" type="MeshInstance3D"]
+material_override = ExtResource("2_material")
+cast_shadow = 0
+script = ExtResource("1_player")
+manifest_path = "res://model/vfx/huijuv2/alembic_sequences/huiju/huiju_manifest.json"
+loop = false
+blank_vertex_count_threshold = 24
+current_frame = 39

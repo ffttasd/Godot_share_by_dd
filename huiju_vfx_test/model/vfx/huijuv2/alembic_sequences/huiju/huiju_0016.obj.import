@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://8wsoksdwcwle"
+path="res://.godot/imported/huiju_0016.obj-02bffc8d4709789f337516525e34a37c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/huiju_0016.obj-02bffc8d4709789f337516525e34a37c.mesh"]
+
+source_file="res://model/vfx/huijuv2/alembic_sequences/huiju/huiju_0016.obj"
+dest_files=["res://.godot/imported/huiju_0016.obj-02bffc8d4709789f337516525e34a37c.mesh", "res://.godot/imported/huiju_0016.obj-02bffc8d4709789f337516525e34a37c.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://crt8gu76ufp7q"]
+
+[ext_resource type="Shader" uid="uid://bbyhg3n0ovhhu" path="res://shaders/attack_light_pillar_scroll.gdshader" id="1_attack_pillar_shader"]
+[ext_resource type="Texture2D" uid="uid://jhlel2emc81t" path="res://sprite/FX/vfx_textures/tile_noise.png" id="2_noise_tiled"]
+
+[sub_resource type="Environment" id="Environment_attack_pillar"]
+background_mode = 1
+background_color = Color(0.015, 0.012, 0.028, 1)
+ambient_light_color = Color(0.28, 0.24, 0.42, 1)
+ambient_light_energy = 0.55
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 0.85
+glow_strength = 1.2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_attack_pillar"]
+resource_local_to_scene = true
+render_priority = 1
+shader = ExtResource("1_attack_pillar_shader")
+shader_parameter/noise_texture = ExtResource("2_noise_tiled")
+shader_parameter/base_color = Color(0.9000001, 0, 1, 1)
+shader_parameter/hot_color = Color(1.1728818, 0.8439375, 1.3500061, 1)
+shader_parameter/scroll_speed = 3.40999992377968
+shader_parameter/uv_tiling_y = 0.25
+shader_parameter/uv_tiling_x = 0.41999999620016
+shader_parameter/emission_strength = 63.999998569472
+shader_parameter/opacity = 0.999999977648
+shader_parameter/contrast = 1.35999997705191
+shader_parameter/soft_edge_width = 0.11999999731776
+shader_parameter/end_fade_width = 0.0
+shader_parameter/surface_brightness = 2.10999995283728
+shader_parameter/alpha_boost = 1.55
+shader_parameter/emission_boost = 2.5
+shader_parameter/stylized_ramp = true
+shader_parameter/ramp_edge_color = Color(0.2, 0.018, 0.48, 0.56)
+shader_parameter/ramp_mid_color = Color(0.7, 0.13, 1.05, 0.76)
+shader_parameter/ramp_core_color = Color(1.28, 0.88, 1.42, 0.95)
+shader_parameter/ramp_mid_threshold = 0.2999999932944
+shader_parameter/ramp_core_threshold = 0.64
+shader_parameter/ramp_center_weight = 0.7
+
+[sub_resource type="QuadMesh" id="QuadMesh_attack_pillar"]
+material = SubResource("ShaderMaterial_attack_pillar")
+size = Vector2(1.25, 5.2)
+
+[node name="AttackLightPillarTest" type="Node3D" unique_id=1604688535]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=456353526]
+environment = SubResource("Environment_attack_pillar")
+
+[node name="AttackLightPillarPlane" type="MeshInstance3D" parent="." unique_id=1799838901]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_attack_pillar")

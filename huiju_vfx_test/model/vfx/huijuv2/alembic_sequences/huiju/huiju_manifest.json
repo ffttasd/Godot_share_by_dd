@@ -1,0 +1,264 @@
+{
+  "source": "huiju_obj_sequence",
+  "frame_start": 1,
+  "frame_end": 60,
+  "frame_step": 1,
+  "frame_count": 60,
+  "source_fps": 24.0,
+  "playback_fps": 24.0,
+  "prefix": "huiju",
+  "frames": [
+    {
+      "frame": 1,
+      "path": "huiju_0000.obj"
+    },
+    {
+      "frame": 2,
+      "path": "huiju_0001.obj"
+    },
+    {
+      "frame": 3,
+      "path": "huiju_0002.obj"
+    },
+    {
+      "frame": 4,
+      "path": "huiju_0003.obj"
+    },
+    {
+      "frame": 5,
+      "path": "huiju_0004.obj"
+    },
+    {
+      "frame": 6,
+      "path": "huiju_0005.obj"
+    },
+    {
+      "frame": 7,
+      "path": "huiju_0006.obj"
+    },
+    {
+      "frame": 8,
+      "path": "huiju_0007.obj"
+    },
+    {
+      "frame": 9,
+      "path": "huiju_0008.obj"
+    },
+    {
+      "frame": 10,
+      "path": "huiju_0009.obj"
+    },
+    {
+      "frame": 11,
+      "path": "huiju_0010.obj"
+    },
+    {
+      "frame": 12,
+      "path": "huiju_0011.obj"
+    },
+    {
+      "frame": 13,
+      "path": "huiju_0012.obj"
+    },
+    {
+      "frame": 14,
+      "path": "huiju_0013.obj"
+    },
+    {
+      "frame": 15,
+      "path": "huiju_0014.obj"
+    },
+    {
+      "frame": 16,
+      "path": "huiju_0015.obj"
+    },
+    {
+      "frame": 17,
+      "path": "huiju_0016.obj"
+    },
+    {
+      "frame": 18,
+      "path": "huiju_0017.obj"
+    },
+    {
+      "frame": 19,
+      "path": "huiju_0018.obj"
+    },
+    {
+      "frame": 20,
+      "path": "huiju_0019.obj"
+    },
+    {
+      "frame": 21,
+      "path": "huiju_0020.obj"
+    },
+    {
+      "frame": 22,
+      "path": "huiju_0021.obj"
+    },
+    {
+      "frame": 23,
+      "path": "huiju_0022.obj"
+    },
+    {
+      "frame": 24,
+      "path": "huiju_0023.obj"
+    },
+    {
+      "frame": 25,
+      "path": "huiju_0024.obj"
+    },
+    {
+      "frame": 26,
+      "path": "huiju_0025.obj"
+    },
+    {
+      "frame": 27,
+      "path": "huiju_0026.obj"
+    },
+    {
+      "frame": 28,
+      "path": "huiju_0027.obj"
+    },
+    {
+      "frame": 29,
+      "path": "huiju_0028.obj"
+    },
+    {
+      "frame": 30,
+      "path": "huiju_0029.obj"
+    },
+    {
+      "frame": 31,
+      "path": "huiju_0030.obj"
+    },
+    {
+      "frame": 32,
+      "path": "huiju_0031.obj"
+    },
+    {
+      "frame": 33,
+      "path": "huiju_0032.obj"
+    },
+    {
+      "frame": 34,
+      "path": "huiju_0033.obj"
+    },
+    {
+      "frame": 35,
+      "path": "huiju_0034.obj"
+    },
+    {
+      "frame": 36,
+      "path": "huiju_0035.obj"
+    },
+    {
+      "frame": 37,
+      "path": "huiju_0036.obj"
+    },
+    {
+      "frame": 38,
+      "path": "huiju_0037.obj"
+    },
+    {
+      "frame": 39,
+      "path": "huiju_0038.obj"
+    },
+    {
+      "frame": 40,
+      "path": "huiju_0039.obj"
+    },
+    {
+      "frame": 41,
+      "path": "huiju_0040.obj"
+    },
+    {
+      "frame": 42,
+      "path": "huiju_0041.obj"
+    },
+    {
+      "frame": 43,
+      "path": "huiju_0042.obj"
+    },
+    {
+      "frame": 44,
+      "path": "huiju_0043.obj"
+    },
+    {
+      "frame": 45,
+      "path": "huiju_0044.obj"
+    },
+    {
+      "frame": 46,
+      "path": "huiju_0045.obj"
+    },
+    {
+      "frame": 47,
+      "path": "huiju_0046.obj"
+    },
+    {
+      "frame": 48,
+      "path": "huiju_0047.obj"
+    },
+    {
+      "frame": 49,
+      "path": "huiju_0048.obj"
+    },
+    {
+      "frame": 50,
+      "path": "huiju_0049.obj"
+    },
+    {
+      "frame": 51,
+      "path": "huiju_0050.obj"
+    },
+    {
+      "frame": 52,
+      "path": "huiju_0051.obj"
+    },
+    {
+      "frame": 53,
+      "path": "huiju_0052.obj"
+    },
+    {
+      "frame": 54,
+      "path": "huiju_0053.obj"
+    },
+    {
+      "frame": 55,
+      "path": "huiju_0054.obj"
+    },
+    {
+      "frame": 56,
+      "path": "huiju_0055.obj"
+    },
+    {
+      "frame": 57,
+      "path": "huiju_0056.obj"
+    },
+    {
+      "frame": 58,
+      "path": "huiju_0057.obj"
+    },
+    {
+      "frame": 59,
+      "path": "huiju_0058.obj"
+    },
+    {
+      "frame": 60,
+      "path": "huiju_0059.obj"
+    }
+  ],
+  "bounds_first_exported_frame": {
+    "min": [
+      -0.19298826158046722,
+      -0.38452768325805664,
+      0.015564704313874245
+    ],
+    "max": [
+      -0.028607985004782677,
+      0.4635762870311737,
+      0.3488713502883911
+    ]
+  }
+}

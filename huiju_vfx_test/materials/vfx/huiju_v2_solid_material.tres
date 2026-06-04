@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[resource]
+resource_name = "HuijuV2SolidMaterial"
+render_priority = 4
+albedo_color = Color(0.78, 0.18, 1, 1)
+roughness = 0.48
+emission_enabled = true
+emission = Color(0.78, 0.18, 1, 1)
+emission_energy_multiplier = 0.8

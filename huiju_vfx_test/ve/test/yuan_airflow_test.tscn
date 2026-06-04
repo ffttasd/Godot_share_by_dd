@@ -1,0 +1,55 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://model/vfx/yuan.fbx" id="1_yuan"]
+[ext_resource type="Material" path="res://ve/test/yuan_airflow_material.tres" id="2_airflow_material"]
+[ext_resource type="Script" path="res://ve/test/yuan_airflow_test.gd" id="3_preview_script"]
+[ext_resource type="Texture2D" path="res://ve/test/yuan_airflow_s_ramp.tres" id="4_s_ramp"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_floor"]
+size = Vector2(4, 4)
+
+[sub_resource type="Environment" id="Environment_yuan_airflow"]
+background_mode = 1
+background_color = Color(0.015, 0.022, 0.032, 1)
+background_energy_multiplier = 0.45
+ambient_light_source = 2
+ambient_light_color = Color(0.28, 0.48, 0.58, 1)
+ambient_light_energy = 0.58
+tonemap_mode = 2
+glow_enabled = true
+glow_intensity = 0.38
+glow_bloom = 0.18
+
+[node name="YuanAirflowTest" type="Node3D" unique_id=186404904]
+
+[node name="YuanModel" parent="." unique_id=1967254800 instance=ExtResource("1_yuan")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+script = ExtResource("3_preview_script")
+airflow_material = ExtResource("2_airflow_material")
+uv_scale = Vector2(7.035, 0.555)
+threshold = 0.69
+s_ramp_texture = ExtResource("4_s_ramp")
+head_brightness = 6.0
+
+[node name="Floor" type="MeshInstance3D" parent="." unique_id=1941458010]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02, 0)
+visible = false
+mesh = SubResource("PlaneMesh_floor")
+
+[node name="KeyLight" type="DirectionalLight3D" parent="." unique_id=1625325631]
+transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353553, 0.612372, 0, 3.2, 3.4)
+light_color = Color(0.56, 0.86, 1, 1)
+light_energy = 0.72
+
+[node name="FillLight" type="OmniLight3D" parent="." unique_id=920941480]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2, 1.4, 2.6)
+light_color = Color(0.2, 0.75, 1, 1)
+light_energy = 0.65
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=911890590]
+transform = Transform3D(0.8660253, -0.16690317, 0.4713211, 0, 0.9426418, 0.3338062, -0.50000024, -0.28908458, 0.8163516, 4.806677, 1.75, 6.7516646)
+current = true
+fov = 36.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1345800629]
+environment = SubResource("Environment_yuan_airflow")

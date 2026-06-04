@@ -1,0 +1,23 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://ve/test/yuan_airflow.gdshader" id="1_shader"]
+[ext_resource type="Texture2D" path="res://sprite/FX/vfx_textures/tile_noise.png" id="2_noise"]
+[ext_resource type="Texture2D" path="res://ve/test/yuan_airflow_s_ramp.tres" id="3_s_ramp"]
+
+[resource]
+render_priority = 8
+shader = ExtResource("1_shader")
+shader_parameter/flow_texture = ExtResource("2_noise")
+shader_parameter/s_ramp_texture = ExtResource("3_s_ramp")
+shader_parameter/flow_color = Color(0.9200001, 0.39999998, 1, 1)
+shader_parameter/uv_scale = Vector2(7.035, 0.555)
+shader_parameter/flow_direction = Vector2(0, -1)
+shader_parameter/flow_speed = 0.72
+shader_parameter/secondary_speed = 0.28
+shader_parameter/threshold = 0.69
+shader_parameter/alpha_strength = 1.999999955296
+shader_parameter/emission_strength = 5.999999865888
+shader_parameter/head_brightness = 6.0
+shader_parameter/s_min = 0.0
+shader_parameter/s_max = 0.0405
+shader_parameter/flip_s_ramp = false

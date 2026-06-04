@@ -1,0 +1,175 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://model/vfx/huijuv2/huiju_sequence.tscn" id="1_huiju"]
+[ext_resource type="Script" path="res://scripts/huiju_v2_vfx_test_controller.gd" id="3_controller"]
+[ext_resource type="PackedScene" path="res://ee/test/attack_light_pillar_test.tscn" id="4_attack_burst"]
+[ext_resource type="PackedScene" path="res://model/vfx/huijuv2/huiju_core_visuals.tscn" id="5_core_visuals"]
+
+[sub_resource type="Environment" id="Environment_huiju_v2"]
+background_mode = 1
+background_color = Color(0.025, 0.025, 0.035, 1)
+background_energy_multiplier = 3.0
+ambient_light_source = 2
+ambient_light_color = Color(0.4, 0.45, 0.55, 1)
+ambient_light_energy = 0.65
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 0.5
+glow_strength = 0.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ground"]
+albedo_color = Color(0.12, 0.12, 0.14, 1)
+roughness = 0.9
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ground"]
+material = SubResource("StandardMaterial3D_ground")
+size = Vector2(6, 6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_origin"]
+radius = 0.035
+height = 0.07
+radial_segments = 16
+rings = 8
+
+[node name="HuijuV2VfxTest" type="Node3D" unique_id=908634040]
+script = ExtResource("3_controller")
+huiju_sequence_path = NodePath("HuijuSequence")
+core_visuals_path = NodePath("CoreVisuals")
+burst_root_path = NodePath("AttackBurst")
+autoplay = false
+restart_on_click = true
+hide_huiju_when_burst_starts = true
+burst_start_frame = 35
+core_grow_start_frame = 1
+core_grow_end_frame = 30
+core_start_scale = 0.0
+core_full_scale_multiplier = 0.498
+core_release_scale = 0.0
+core_stepped_growth_enabled = true
+core_growth_stage_count = 4
+core_growth_first_jump_start = 0.52
+core_growth_interval_accel = 0.75
+core_growth_hold_ratio = 0.68
+core_growth_snap_sharpness = 3.8
+core_growth_overshoot = 0.12
+core_heartbeat_enabled = true
+core_heartbeat_amount = 0.08
+core_heartbeat_hz = 5.2
+core_heartbeat_second_beat_phase = 0.45
+core_heartbeat_second_beat_strength = 1.0
+core_heartbeat_sharpness = 10.0
+core_tension_whiten_enabled = true
+core_tension_whiten_amount = 8.0
+core_tension_whiten_heartbeat = 8.0
+core_tension_whiten_gamma = 8.0
+core_tension_whiten_overlay_size = 3.0
+core_instability_enabled = true
+core_instability_scale = 0.16
+core_instability_flicker = 0.28
+core_instability_speed = 12.0
+core_spike_chance = 0.89
+core_spike_amount = 0.48
+core_spike_decay = 8.5
+bridge_flash_start_frame = 38
+bridge_flash_end_frame = 45
+bridge_flash_color = Color(1, 0.72, 1, 1)
+bridge_flash_white = Color(1, 0.96, 1, 1)
+bridge_flash_peak_seconds = 0.12
+pre_flash_star_enabled = true
+pre_flash_star_seconds = 1.0
+pre_flash_star_count = 22
+pre_flash_star_radius = 0.58
+pre_flash_star_size = 0.11
+pre_flash_star_flash_rate = 8.5
+pre_flash_star_progressive_power = 1.55
+pre_flash_star_color = Color(1, 0.86, 1, 1)
+pre_flash_big_star_enabled = true
+pre_flash_big_star_count = 8
+pre_flash_big_star_size = 1.5
+pre_flash_big_star_seconds = 0.055
+black_white_flash_enabled = true
+black_white_flash_seconds = 0.14
+black_white_flash_strength = 1.0
+black_white_flash_center_radius = 0.0
+black_white_flash_center_feather = 0.01
+black_white_flash_line_strength = 2.25
+black_white_flash_line_displacement_px = 260.0
+black_white_flash_line_density = 19.7
+black_white_flash_line_width = 0.9
+black_white_flash_line_speed = 14.51
+burst_local_offset = Vector3(0, 0, 0)
+burst_rotation = Vector3(0, 0, -1.5707964)
+burst_full_scale = Vector3(0.545, 1.59, 1)
+burst_extend_seconds = 0.2
+burst_hold_seconds = 0.75
+burst_release_seconds = 0.1
+burst_muzzle_enabled = true
+burst_muzzle_seconds = 0.28
+burst_muzzle_size = 0.4
+burst_muzzle_length = 2.5
+burst_muzzle_width = 2.0
+burst_muzzle_strength = 0.0
+burst_muzzle_flash_rate = 26.2
+burst_muzzle_flash_strength = 0.091
+burst_core_overexposure = 4.961
+burst_core_glow_size = 0.034
+yuan_airflow_enabled = true
+yuan_airflow_offset = Vector3(0.345, 0, 0)
+yuan_airflow_rotation = Vector3(0, 0, 180)
+yuan_airflow_scale = 0.75
+yuan_airflow_flip_s_ramp = false
+yuan_airflow_s_min = 0.0
+yuan_airflow_s_max = 0.0405
+burst_source_particles_enabled = true
+burst_source_particle_count = 100
+burst_source_particle_lifetime = 0.37
+burst_source_particle_range = 1.06
+burst_source_particle_speed = 4.5
+burst_source_particle_spread = 35.5
+burst_source_particle_size = 0.037
+close_tail_seconds = 0.12
+close_tail_color = Color(1, 0.62, 1, 1)
+close_tail_start_radius = 0.05
+close_tail_end_radius = 0.68
+close_tail_particles_enabled = true
+close_tail_particle_count = 96
+close_tail_particle_radius = 0.82
+close_tail_particle_size = 0.018
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=86398562]
+environment = SubResource("Environment_huiju_v2")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=254369416]
+transform = Transform3D(1, 0, 0, 0, 0.92387956, 0.38268343, 0, -0.38268343, 0.92387956, 1.386939, 0.42038715, 1.2069397)
+projection = 1
+current = true
+size = 4.18
+
+[node name="KeyLight" type="DirectionalLight3D" parent="." unique_id=1898399643]
+transform = Transform3D(0.70710677, -0.35355338, 0.61237246, 0, 0.8660254, 0.5, -0.70710677, -0.35355338, 0.61237246, 0, 5, 3)
+light_color = Color(0.78, 0.88, 1, 1)
+light_energy = 1.1
+
+[node name="Ground" type="MeshInstance3D" parent="." unique_id=222032770]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02, 0)
+visible = false
+mesh = SubResource("PlaneMesh_ground")
+
+[node name="OriginMarker" type="MeshInstance3D" parent="." unique_id=2031496326]
+visible = false
+mesh = SubResource("SphereMesh_origin")
+
+[node name="HuijuSequence" parent="." unique_id=75757781 instance=ExtResource("1_huiju")]
+transform = Transform3D(5.42, 0, 0, 0, 5.42, 0, 0, 0, 5.42, 0, 0, 0)
+autoplay = false
+clear_mesh_when_finished = true
+preview_in_editor = false
+fps_override = 0.0
+speed_scale = 1.0
+start_frame = 0
+disable_shadows = true
+
+[node name="CoreVisuals" parent="." unique_id=798678044 instance=ExtResource("5_core_visuals")]
+transform = Transform3D(1.880135, 0, 0, 0, 1.880135, 0, 0, 0, 1.880135, 0, 0, 0)
+
+[node name="AttackBurst" parent="." unique_id=785763140 instance=ExtResource("4_attack_burst")]
