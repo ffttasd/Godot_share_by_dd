@@ -1,0 +1,126 @@
+[gd_scene format=3]
+
+[ext_resource type="Shader" path="res://shaders/fireworks_billboard.gdshader" id="1_shader"]
+[ext_resource type="Script" path="res://scripts/fireworks_billboard.gd" id="2_billboard_script"]
+[ext_resource type="Shader" path="res://shaders/fireworks_canvas_item.gdshader" id="3_canvas_shader"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fireworks_2d"]
+shader = ExtResource("3_canvas_shader")
+shader_parameter/burst_count = 1
+shader_parameter/particle_count = 58
+shader_parameter/cycle_speed = 0.24
+shader_parameter/launch_fraction = 0.34
+shader_parameter/horizontal_span = 1.45
+shader_parameter/quad_aspect = 1.3333334
+shader_parameter/visible_half_width = 2.0150000482125
+shader_parameter/visible_bottom = -0.45
+shader_parameter/visible_top = 1.9
+shader_parameter/min_burst_height = 0.66500002506773
+shader_parameter/max_burst_height = 1.39999997615814
+shader_parameter/max_horizontal_spread = 0.92
+shader_parameter/trail_radius = 0.009
+shader_parameter/trail_visible_length = 0.11
+shader_parameter/trail_fade_length = 0.05
+shader_parameter/particle_radius = 0.018
+shader_parameter/burst_scale = 1.4030000643134302
+shader_parameter/brightness = 4.0
+shader_parameter/launch_base_color = Color(1, 0.38, 0.12, 1)
+shader_parameter/launch_tip_color = Color(1, 0.92, 0.62, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_launcher"]
+shading_mode = 0
+albedo_color = Color(0.050980393, 0.05490196, 0.07058824, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_launcher"]
+material = SubResource("StandardMaterial3D_launcher")
+top_radius = 0.07
+bottom_radius = 0.09
+height = 0.36
+radial_segments = 16
+rings = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_origin"]
+shading_mode = 0
+albedo_color = Color(0.9137255, 0.5019608, 0.1764706, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_origin"]
+material = SubResource("StandardMaterial3D_origin")
+radius = 0.05
+height = 0.1
+radial_segments = 16
+rings = 8
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fireworks"]
+render_priority = 1
+shader = ExtResource("1_shader")
+shader_parameter/burst_count = 27
+shader_parameter/particle_count = 58
+shader_parameter/cycle_speed = 0.24
+shader_parameter/launch_fraction = 0.34
+shader_parameter/horizontal_span = 1.45
+shader_parameter/quad_aspect = 1.3333334
+shader_parameter/visible_half_width = 2.0150000482125
+shader_parameter/visible_bottom = -0.45
+shader_parameter/visible_top = 1.9
+shader_parameter/min_burst_height = 0.66500002506773
+shader_parameter/max_burst_height = 1.39999997615814
+shader_parameter/max_horizontal_spread = 0.92
+shader_parameter/trail_radius = 0.009
+shader_parameter/trail_visible_length = 0.11
+shader_parameter/trail_fade_length = 0.05
+shader_parameter/particle_radius = 0.018
+shader_parameter/burst_scale = 1.4030000643134302
+shader_parameter/brightness = 4.0
+shader_parameter/launch_base_color = Color(1, 0.38, 0.12, 1)
+shader_parameter/launch_tip_color = Color(1, 0.92, 0.62, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_fireworks"]
+size = Vector2(24, 20)
+
+[sub_resource type="Environment" id="Environment_a3qqk"]
+background_mode = 1
+background_color = Color(0.007843138, 0.011764706, 0.03137255, 1)
+ambient_light_color = Color(0.2509804, 0.2901961, 0.39215687, 1)
+ambient_light_energy = 0.15
+
+[node name="FireworksBillboard" type="Node3D" unique_id=1841838755]
+
+[node name="Fireworks2DLayer" type="CanvasLayer" parent="." unique_id=1401255728]
+
+[node name="Fireworks2DQuad" type="ColorRect" parent="Fireworks2DLayer" unique_id=1163018043]
+material = SubResource("ShaderMaterial_fireworks_2d")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -231.0
+offset_right = 467.0
+offset_bottom = 249.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.0666666, 0, 1, 1)
+
+[node name="LaunchTube" type="MeshInstance3D" parent="." unique_id=835837833]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18, 0)
+visible = false
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_launcher")
+
+[node name="LaunchOrigin" type="MeshInstance3D" parent="." unique_id=1194719822]
+visible = false
+cast_shadow = 0
+mesh = SubResource("SphereMesh_origin")
+
+[node name="BillboardQuad" type="MeshInstance3D" parent="." unique_id=667709366]
+transform = Transform3D(1.2791439, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.17, 0)
+material_override = SubResource("ShaderMaterial_fireworks")
+cast_shadow = 0
+extra_cull_margin = 60.0
+mesh = SubResource("QuadMesh_fireworks")
+script = ExtResource("2_billboard_script")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=932654283]
+environment = SubResource("Environment_a3qqk")
