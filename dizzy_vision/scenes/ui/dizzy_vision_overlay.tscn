@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/dizzy_vision_overlay.gd" id="1_script"]
+[ext_resource type="Shader" path="res://shaders/dizzy_vision_overlay.gdshader" id="2_shader"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dizzy_vision"]
+resource_local_to_scene = true
+shader = ExtResource("2_shader")
+shader_parameter/intensity = 0.78
+shader_parameter/distortion_strength_px = 30.0
+shader_parameter/blur_strength_px = 7.0
+shader_parameter/sway_strength_px = 18.0
+shader_parameter/pulse_strength = 0.0
+shader_parameter/focus_center = Vector2(0.5, 0.58)
+shader_parameter/focus_radius = 0.16
+shader_parameter/focus_feather = 0.34
+shader_parameter/vignette_strength = 0.46
+shader_parameter/tint_color = Color(0.46, 0.62, 0.88, 0.18)
+shader_parameter/desaturation = 0.36
+
+[node name="DizzyVisionOverlay" type="ColorRect"]
+material = SubResource("ShaderMaterial_dizzy_vision")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 1)
+script = ExtResource("1_script")

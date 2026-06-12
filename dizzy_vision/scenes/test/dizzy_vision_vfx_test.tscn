@@ -1,0 +1,407 @@
+[gd_scene format=3 uid="uid://cptlq1docb481"]
+
+[ext_resource type="Script" uid="uid://b5eqjyn2ab8ae" path="res://scripts/dizzy_vision_vfx_test.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/ui/dizzy_vision_overlay.tscn" id="2_overlay"]
+[ext_resource type="Shader" uid="uid://dnoewsvuf0eo" path="res://shaders/dizzy_vision_overlay.gdshader" id="3_lrjxt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lrjxt"]
+resource_local_to_scene = true
+shader = ExtResource("3_lrjxt")
+shader_parameter/intensity = 0.68
+shader_parameter/distortion_strength_px = 30.0
+shader_parameter/blur_strength_px = 7.0
+shader_parameter/sway_strength_px = 18.0
+shader_parameter/pulse_strength = 0.0
+shader_parameter/focus_center = Vector2(1.065, 0.58)
+shader_parameter/focus_radius = 0.16
+shader_parameter/focus_feather = 0.34
+shader_parameter/vignette_strength = 0.46
+shader_parameter/tint_color = Color(0.46, 0.62, 0.88, 0.18)
+shader_parameter/desaturation = 0.36
+
+[node name="DizzyVisionVfxTest" type="Control" unique_id=877421230]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+status_label_path = NodePath("")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1589276552]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.036, 0.043, 0.052, 1)
+
+[node name="SceneContent" type="Control" parent="." unique_id=2072307813]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -132.0
+offset_top = -78.0
+offset_right = 139.0
+offset_bottom = 114.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColdSky" type="ColorRect" parent="SceneContent" unique_id=398306974]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.42
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.078, 0.098, 0.124, 1)
+
+[node name="HorizonGlow" type="ColorRect" parent="SceneContent" unique_id=1894400241]
+layout_mode = 0
+anchor_top = 0.4
+anchor_right = 1.0
+anchor_bottom = 0.4
+offset_top = -26.0
+offset_bottom = 26.0
+color = Color(0.18, 0.21, 0.22, 1)
+
+[node name="GroundPlane" type="ColorRect" parent="SceneContent" unique_id=187267630]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.42
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.087, 0.094, 0.082, 1)
+
+[node name="GroundNearShade" type="ColorRect" parent="SceneContent" unique_id=10203670]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -245.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.032, 0.036, 0.035, 1)
+
+[node name="ReferenceGrid" type="Control" parent="SceneContent" unique_id=1266912702]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HLineFar" type="ColorRect" parent="SceneContent/ReferenceGrid" unique_id=2135829295]
+layout_mode = 0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -2.0
+offset_bottom = 2.0
+color = Color(0.33, 0.36, 0.33, 1)
+
+[node name="HLineMid" type="ColorRect" parent="SceneContent/ReferenceGrid" unique_id=1602522068]
+layout_mode = 0
+anchor_top = 0.62
+anchor_right = 1.0
+anchor_bottom = 0.62
+offset_top = -3.0
+offset_bottom = 3.0
+color = Color(0.27, 0.31, 0.28, 1)
+
+[node name="HLineNear" type="ColorRect" parent="SceneContent/ReferenceGrid" unique_id=1349550382]
+layout_mode = 0
+anchor_top = 0.78
+anchor_right = 1.0
+anchor_bottom = 0.78
+offset_top = -5.0
+offset_bottom = 5.0
+color = Color(0.19, 0.23, 0.2, 1)
+
+[node name="PerspectiveRayLeft" type="ColorRect" parent="SceneContent/ReferenceGrid" unique_id=2072244921]
+layout_mode = 0
+anchor_left = 0.42
+anchor_top = 0.43
+anchor_right = 0.42
+anchor_bottom = 0.43
+offset_left = -5.0
+offset_top = -32.0
+offset_right = 5.0
+offset_bottom = 760.0
+rotation = -0.31
+pivot_offset = Vector2(5, 32)
+color = Color(0.3, 0.33, 0.29, 1)
+
+[node name="PerspectiveRayCenter" type="ColorRect" parent="SceneContent/ReferenceGrid" unique_id=1072207586]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.43
+anchor_right = 0.5
+anchor_bottom = 0.43
+offset_left = -4.0
+offset_top = -32.0
+offset_right = 4.0
+offset_bottom = 790.0
+color = Color(0.26, 0.29, 0.26, 1)
+
+[node name="PerspectiveRayRight" type="ColorRect" parent="SceneContent/ReferenceGrid" unique_id=1682634221]
+layout_mode = 0
+anchor_left = 0.58
+anchor_top = 0.43
+anchor_right = 0.58
+anchor_bottom = 0.43
+offset_left = -5.0
+offset_top = -32.0
+offset_right = 5.0
+offset_bottom = 760.0
+rotation = 0.31
+pivot_offset = Vector2(5, 32)
+color = Color(0.3, 0.33, 0.29, 1)
+
+[node name="LeftRoadLine" type="ColorRect" parent="SceneContent" unique_id=1031134792]
+layout_mode = 0
+anchor_left = 0.33
+anchor_top = 0.43
+anchor_right = 0.33
+anchor_bottom = 0.43
+offset_left = -16.0
+offset_top = -28.0
+offset_right = 16.0
+offset_bottom = 770.0
+rotation = -0.22
+pivot_offset = Vector2(16, 28)
+color = Color(0.23, 0.245, 0.22, 1)
+
+[node name="RightRoadLine" type="ColorRect" parent="SceneContent" unique_id=55077890]
+layout_mode = 0
+anchor_left = 0.67
+anchor_top = 0.43
+anchor_right = 0.67
+anchor_bottom = 0.43
+offset_left = -16.0
+offset_top = -28.0
+offset_right = 16.0
+offset_bottom = 770.0
+rotation = 0.22
+pivot_offset = Vector2(16, 28)
+color = Color(0.215, 0.232, 0.21, 1)
+
+[node name="MotionSamples" type="Control" parent="SceneContent" unique_id=12299470]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="RedPanel" type="ColorRect" parent="SceneContent/MotionSamples" unique_id=566967925]
+layout_mode = 0
+anchor_left = 0.18
+anchor_top = 0.49
+anchor_right = 0.18
+anchor_bottom = 0.49
+offset_left = -86.0
+offset_top = -38.0
+offset_right = 86.0
+offset_bottom = 38.0
+rotation = -0.08
+color = Color(0.82, 0.24, 0.18, 1)
+
+[node name="CyanPanel" type="ColorRect" parent="SceneContent/MotionSamples" unique_id=251683274]
+layout_mode = 0
+anchor_left = 0.82
+anchor_top = 0.52
+anchor_right = 0.82
+anchor_bottom = 0.52
+offset_left = -72.0
+offset_top = -48.0
+offset_right = 72.0
+offset_bottom = 48.0
+rotation = 0.12
+color = Color(0.18, 0.72, 0.82, 1)
+
+[node name="GreenPlate" type="ColorRect" parent="SceneContent/MotionSamples" unique_id=1403985142]
+layout_mode = 0
+anchor_left = 0.28
+anchor_top = 0.78
+anchor_right = 0.28
+anchor_bottom = 0.78
+offset_left = -118.0
+offset_top = -28.0
+offset_right = 118.0
+offset_bottom = 28.0
+rotation = 0.25
+color = Color(0.24, 0.64, 0.3, 1)
+
+[node name="PurpleBlock" type="ColorRect" parent="SceneContent/MotionSamples" unique_id=142051263]
+layout_mode = 0
+anchor_left = 0.72
+anchor_top = 0.84
+anchor_right = 0.72
+anchor_bottom = 0.84
+offset_left = -52.0
+offset_top = -52.0
+offset_right = 52.0
+offset_bottom = 52.0
+rotation = -0.42
+color = Color(0.56, 0.38, 0.82, 1)
+
+[node name="WhiteNeedle" type="ColorRect" parent="SceneContent/MotionSamples" unique_id=87232961]
+layout_mode = 0
+anchor_left = 0.52
+anchor_top = 0.46
+anchor_right = 0.52
+anchor_bottom = 0.46
+offset_left = -8.0
+offset_top = -92.0
+offset_right = 8.0
+offset_bottom = 92.0
+rotation = 0.08
+color = Color(0.9, 0.93, 0.86, 1)
+
+[node name="Debris" type="Control" parent="SceneContent" unique_id=1332679992]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ShardA" type="ColorRect" parent="SceneContent/Debris" unique_id=1300085720]
+layout_mode = 0
+anchor_left = 0.21
+anchor_top = 0.69
+anchor_right = 0.21
+anchor_bottom = 0.69
+offset_left = -64.0
+offset_top = -20.0
+offset_right = 64.0
+offset_bottom = 20.0
+rotation = 0.15
+color = Color(0.26, 0.29, 0.31, 1)
+
+[node name="ShardB" type="ColorRect" parent="SceneContent/Debris" unique_id=284139862]
+layout_mode = 0
+anchor_left = 0.76
+anchor_top = 0.72
+anchor_right = 0.76
+anchor_bottom = 0.72
+offset_left = -92.0
+offset_top = -18.0
+offset_right = 92.0
+offset_bottom = 18.0
+rotation = -0.12
+color = Color(0.21, 0.235, 0.255, 1)
+
+[node name="ShardC" type="ColorRect" parent="SceneContent/Debris" unique_id=1664696318]
+layout_mode = 0
+anchor_left = 0.61
+anchor_top = 0.83
+anchor_right = 0.61
+anchor_bottom = 0.83
+offset_left = -38.0
+offset_top = -38.0
+offset_right = 38.0
+offset_bottom = 38.0
+rotation = 0.46
+color = Color(0.34, 0.22, 0.18, 1)
+
+[node name="ShardD" type="ColorRect" parent="SceneContent/Debris" unique_id=322235760]
+layout_mode = 0
+anchor_left = 0.39
+anchor_top = 0.86
+anchor_right = 0.39
+anchor_bottom = 0.86
+offset_left = -56.0
+offset_top = -16.0
+offset_right = 56.0
+offset_bottom = 16.0
+rotation = -0.35
+color = Color(0.16, 0.19, 0.2, 1)
+
+[node name="ShardE" type="ColorRect" parent="SceneContent/Debris" unique_id=171456250]
+layout_mode = 0
+anchor_left = 0.14
+anchor_top = 0.86
+anchor_right = 0.14
+anchor_bottom = 0.86
+offset_left = -72.0
+offset_top = -14.0
+offset_right = 72.0
+offset_bottom = 14.0
+rotation = 0.58
+color = Color(0.42, 0.39, 0.33, 1)
+
+[node name="ShardF" type="ColorRect" parent="SceneContent/Debris" unique_id=15566357]
+layout_mode = 0
+anchor_left = 0.86
+anchor_top = 0.63
+anchor_right = 0.86
+anchor_bottom = 0.63
+offset_left = -42.0
+offset_top = -42.0
+offset_right = 42.0
+offset_bottom = 42.0
+rotation = -0.2
+color = Color(0.11, 0.13, 0.15, 1)
+
+[node name="CenterObject" type="Control" parent="SceneContent" unique_id=1328423822]
+anchors_preset = 0
+anchor_left = 0.5
+anchor_top = 0.62
+anchor_right = 0.5
+anchor_bottom = 0.62
+offset_left = -154.0
+offset_top = -72.0
+offset_right = 154.0
+offset_bottom = 72.0
+mouse_filter = 2
+
+[node name="Shadow" type="ColorRect" parent="SceneContent/CenterObject" unique_id=912621478]
+layout_mode = 0
+offset_left = -22.0
+offset_top = 94.0
+offset_right = 330.0
+offset_bottom = 132.0
+color = Color(0.008, 0.009, 0.01, 0.72)
+
+[node name="Body" type="ColorRect" parent="SceneContent/CenterObject" unique_id=1914671731]
+layout_mode = 0
+offset_right = 308.0
+offset_bottom = 144.0
+color = Color(0.72, 0.67, 0.48, 1)
+
+[node name="Edge" type="ColorRect" parent="SceneContent/CenterObject" unique_id=1130266366]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 18.0
+offset_right = 292.0
+offset_bottom = 44.0
+color = Color(0.97, 0.9, 0.58, 1)
+
+[node name="DarkCut" type="ColorRect" parent="SceneContent/CenterObject" unique_id=1559579106]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 78.0
+offset_right = 272.0
+offset_bottom = 104.0
+color = Color(0.27, 0.24, 0.18, 1)
+
+[node name="VFXLayer" type="CanvasLayer" parent="." unique_id=1822759986]
+layer = 80
+
+[node name="DizzyVisionOverlay" parent="VFXLayer" unique_id=835453013 instance=ExtResource("2_overlay")]
+material = SubResource("ShaderMaterial_lrjxt")
+intensity = 0.68
+pulse_release_duration = 0.1
+focus_center = Vector2(1.065, 0.58)
